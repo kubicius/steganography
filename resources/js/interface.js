@@ -34,14 +34,18 @@ window.addEventListener('DOMContentLoaded', function (event){
                 hideBox(pictureEntry);
                 steganographyInput(event, input);
                 showBox(result);
+                let canvas = document.querySelector('#imageCanvas');
+                canvas.style.display = 'block';
             }
         });
 
         window.addEventListener("dragover", function(event) {
             event.preventDefault();
+            event.dataTransfer.dropEffect = 'copy';
         });
 
         window.addEventListener("drop", function(event) {
+            event.stopPropagation();
             event.preventDefault();
             if (pictureEntry.style.display == 'block') {
                 pictureInput.files = event.dataTransfer.files;

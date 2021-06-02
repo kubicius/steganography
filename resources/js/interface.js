@@ -9,6 +9,7 @@ window.addEventListener('DOMContentLoaded', function (event){
 
         let pictureEntry = steganography.querySelector('#picture_entry');
         let pictureInput = steganography.querySelector('#input_picture');
+        let result = steganography.querySelector('#result');
 
         steganography.addEventListener('change', function (event){
             if(event.target.id == input.id) {     
@@ -18,7 +19,7 @@ window.addEventListener('DOMContentLoaded', function (event){
                 hideBox(dataEntry);
 
                 let encodedInfo = steganography.querySelector('#encoded_info');
-                let encodedInput = encodedInfo.querySelector('#encoded_input');   
+                let encodedInput = encodedInfo.querySelector('#input_encoded');   
                 encodedInput.innerHTML = encoded.encoded;
                 showBox(encodedInfo, encodedInput);
                 window.setTimeout( function() {
@@ -28,14 +29,22 @@ window.addEventListener('DOMContentLoaded', function (event){
             }
         });
 
-        steganography.addEventListener("dragover", function(event) {
+        steganography.addEventListener('input', function (event){
+            if(event.target.id == pictureInput.id){
+                hideBox(pictureEntry);
+                steganographyInput(event, input);
+                showBox(result);
+            }
+        });
+
+        window.addEventListener("dragover", function(event) {
             event.preventDefault();
         });
 
-        steganography.addEventListener("drop", function(event) {
+        window.addEventListener("drop", function(event) {
             event.preventDefault();
             if (pictureEntry.style.display == 'block') {
-                console.log(event);
+                pictureInput.files = event.dataTransfer.files;
             }
         });
     }

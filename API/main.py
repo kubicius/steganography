@@ -7,28 +7,28 @@ app = FastAPI()
 keyObj = Key()
 cipherObj = Cipher()
 
-@app.get("/symmetric/key")
+@app.get("/key")
 def get_symmetric_key():
     """
     Returns random generated HEX key
     """
     return keyObj.generate()
 
-@app.post("/symmetric/key")
+@app.post("/key")
 def set_symmetric_key(key: str):
     """
     Sets passed HEX key on server
     """
     return keyObj.setKey(key)
 
-@app.post("/symmetric/encode")
+@app.post("/encode")
 def encode_symmetric(string: str):
     """
     Returns passed string but encoded
     """
     return cipherObj.encodeSymmetric(string)
 
-@app.post("/symmetric/decode")
+@app.post("/decode")
 def decode_symmetric(string: str):
     """
     Returns passed string but decoded

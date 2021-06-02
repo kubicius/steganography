@@ -7,6 +7,9 @@ window.addEventListener('DOMContentLoaded', function (event){
         let input = dataEntry.querySelector('#input_text');
         showBox(dataEntry, input);
 
+        let pictureEntry = steganography.querySelector('#picture_entry');
+        let pictureInput = steganography.querySelector('#input_picture');
+
         steganography.addEventListener('change', function (event){
             if(event.target.id == input.id) {     
                 let cryptographyObj = new Cryptography();
@@ -20,7 +23,19 @@ window.addEventListener('DOMContentLoaded', function (event){
                 showBox(encodedInfo, encodedInput);
                 window.setTimeout( function() {
                     hideBox(encodedInfo);
+                    showBox(pictureEntry, pictureInput);
                 }, 5000);
+            }
+        });
+
+        steganography.addEventListener("dragover", function(event) {
+            event.preventDefault();
+        });
+
+        steganography.addEventListener("drop", function(event) {
+            event.preventDefault();
+            if (pictureEntry.style.display == 'block') {
+                console.log(event);
             }
         });
     }

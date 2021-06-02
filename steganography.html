@@ -13,12 +13,18 @@
             </div>
             <div id="encoded_info" class="box">
                 <p class="text--big">There is your encoded text</p>
-                <p id="encoded_input"></p>
+                <p id="input_encoded"></p>
             </div>
             <div id="picture_entry" class="box">
                 <p class="text--big">Upload image for further processing</p>
                 <p>(You can drag it anywhere)</p>
                 <input id="input_picture" type="file" accept="image/*">
+            </div>
+            <canvas id="imageCanvas"></canvas>
+            <canvas id="textCanvas"></canvas>
+            <div id="result" class="box">
+                <p class="text--big">Steganography succeded!</p>
+                <img id="image_result">
             </div>
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>

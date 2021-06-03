@@ -123,6 +123,7 @@ function handleImage(mode, pictureInput, pictureEntry, result, input){
     if(mode == 'hide'){
         steganographyHide(pictureInput, input);
     }else if(mode == 'reveal'){
+        // Unfortunately following function do not return string so text decoding is impossible.
         steganographyReveal(pictureInput);
     }
     showBox(result, null);

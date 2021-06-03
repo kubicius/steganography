@@ -42,7 +42,7 @@ function steganographyHide(target, input){
     reader.readAsDataURL(target.files[0]);
 }
 
-function steganographyReveal(event){
+function steganographyReveal(target){
     let imageCanvas = document.getElementById('imageCanvas');
     let imageCanvasContext = imageCanvas.getContext('2d');
 
@@ -70,5 +70,5 @@ function steganographyReveal(event){
         });
         image.src = event.target.result;
     });
-    reader.readAsDataURL(event.target.files[0]);
+    reader.readAsDataURL(target.files[0]);
 }

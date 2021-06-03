@@ -7,6 +7,11 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="resources/styles.css">
         <div id="steganography" class="container">
+            <div id="choose_option" class="box">
+                <p class="text--big">What do you want to do?</p>
+                <p><a href="" class="text--option" id='hide'>Hide text</a></p>
+                <p><a href="" class="text--option" id='reveal'>Reveal text</a></p>
+            </div>
             <div id="data_entry" class="box">
                 <p class="text--big">First you should enter text in field below</p>
                 <input id="input_text">
@@ -26,12 +31,6 @@
                 <canvas id="imageCanvas"></canvas>
                 <canvas id="textCanvas"></canvas>
                 <p><a href="" class="text--option" id='finish'>I'm done!</a></p>
-            </div>
-
-            <div id="choose_option">
-                <p class="text--big">What do you want to do?</p>
-                <p><a href="" class="text--option" id='hide'>Hide text</a></p>
-                <p><a href="" class="text--option" id='reveal'>Reveal text</a></p>
             </div>
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>

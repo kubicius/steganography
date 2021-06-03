@@ -2,18 +2,28 @@ const steganography = document.querySelector('#steganography');
 
 window.addEventListener('DOMContentLoaded', function (event){
     if(typeof steganography != undefined){
+        let chooseOption = steganography.querySelector('#choose_option');
+        showBox(chooseOption, null);
         steganography.addEventListener('click', function (event){
-            let chooseOption = steganography.querySelector('#choose_option');
-            if(event.target.id == chooseOption.querySelector('#hide').id){
+            if(event.target.id == 'hide'){
                 event.preventDefault();
                 hideBox(chooseOption);
                 handleHide();
             }
 
-            if(event.target.id == chooseOption.querySelector('#reveal').id){
+            if(event.target.id == 'reveal'){
                 event.preventDefault();
                 hideBox(chooseOption);
                 handleReveal();
+            }
+
+            if(event.target.id == 'finish'){
+                event.preventDefault();
+                let result = steganography.querySelector('#result');
+                hideBox(result);
+                window.setTimeout( function() {
+                    window.location.reload();
+                }, 1000);
             }
         });
         window.addEventListener("dragover", function(event) {
@@ -79,7 +89,7 @@ function handleReveal(){
 
     window.addEventListener('change', function (event){
         if(event.target.id == pictureInput.id){
-            handleImage('reveal', event, pictureEntry, result);
+            handleImage('reveal', event.target, pictureEntry, result);
         }
     });
 
@@ -88,6 +98,7 @@ function handleReveal(){
         event.preventDefault();
         if (pictureEntry.style.display == 'block') {
             pictureInput.files = event.dataTransfer.files;
+            handleImage('reveal', pictureInput, pictureEntry, result);
         }
     });
 }

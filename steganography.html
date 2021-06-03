@@ -20,11 +20,18 @@
                 <p>(You can drag it anywhere)</p>
                 <input id="input_picture" type="file" accept="image/*">
             </div>
-            <canvas id="imageCanvas"></canvas>
-            <canvas id="textCanvas"></canvas>
             <div id="result" class="box">
                 <p class="text--big">Steganography succeded!</p>
-                <img id="image_result">
+                <p>Output:</p>
+                <canvas id="imageCanvas"></canvas>
+                <canvas id="textCanvas"></canvas>
+                <p><a href="" class="text--option" id='finish'>I'm done!</a></p>
+            </div>
+
+            <div id="choose_option">
+                <p class="text--big">What do you want to do?</p>
+                <p><a href="" class="text--option" id='hide'>Hide text</a></p>
+                <p><a href="" class="text--option" id='reveal'>Reveal text</a></p>
             </div>
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
